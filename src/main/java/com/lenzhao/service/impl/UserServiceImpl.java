@@ -1,11 +1,13 @@
 package com.lenzhao.service.impl;
 
+import com.lenzhao.api.UserService;
 import com.lenzhao.framework.client.RpcClientProxy;
 import com.lenzhao.framework.common.RpcContext;
-import com.lenzhao.service.UserService;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Created by lenzhao on 17-2-27.
@@ -21,11 +23,6 @@ public class UserServiceImpl implements UserService {
             throwable.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-        UserServiceImpl userService = new UserServiceImpl();
-        userService.login("lenzhao", "112233");
-        System.out.println(userService.getUserInfo("lenzhao"));
-    }
 
     @Override
     public void login(String userName, String password) {
@@ -39,9 +36,7 @@ public class UserServiceImpl implements UserService {
         String msg = null;
         try {
             msg =  future.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return msg;
