@@ -15,9 +15,15 @@
 			<outputDirectory>conf</outputDirectory>
 			<fileMode>0644</fileMode>
 		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/classes</directory>
+			<outputDirectory>classes</outputDirectory>
+			<fileMode>0644</fileMode>
+		</fileSet>
 	</fileSets>
 	<dependencySets>
 		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
 			<outputDirectory>lib</outputDirectory>
 		</dependencySet>
 	</dependencySets>

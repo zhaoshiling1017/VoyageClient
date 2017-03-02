@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         UserServiceImpl userService = new UserServiceImpl();
         userService.login("lenzhao", "112233");
-        //logger.info(userService.getUserInfo("lenzhao"));
+        logger.info(userService.getUserInfo("lenzhao"));
     }
 
 }
